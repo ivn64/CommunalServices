@@ -6,6 +6,8 @@ ServiceManagement::ServiceManagement(QWidget *parent) :
     ui(new Ui::ServiceManagement)
 {
     ui->setupUi(this);
+
+    setModal(true);
 }
 
 ServiceManagement::~ServiceManagement()

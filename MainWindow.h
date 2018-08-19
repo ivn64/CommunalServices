@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 
+#include "ServiceManagement.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +19,8 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    ServiceManagement * serviceDialog;
+
 };
 
 #endif // MAINWINDOW_H
