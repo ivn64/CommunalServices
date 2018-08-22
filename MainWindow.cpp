@@ -9,8 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    serviceDialog = new ServiceManagement(this);
-    connect(ui->servicesButton, &QPushButton::clicked, serviceDialog, &QDialog::show);
+    servicesDialog = new ServicesDialog(this);
+    connect(ui->servicesButton, &QPushButton::clicked, servicesDialog, &QDialog::show);
 }
 
 MainWindow::~MainWindow()

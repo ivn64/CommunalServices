@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ServiceManagement</class>
- <widget class="QDialog" name="ServiceManagement">
+ <class>ServicesDialog</class>
+ <widget class="QDialog" name="ServicesDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>545</width>
-    <height>417</height>
+    <width>566</width>
+    <height>437</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,7 +24,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QListView" name="servicesListView"/>
+      <widget class="QListWidget" name="sevicesListWidget"/>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
@@ -158,5 +158,22 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>cancelButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ServicesDialog</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>482</x>
+     <y>414</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>282</x>
+     <y>218</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

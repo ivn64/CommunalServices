@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 
-#include "ServiceManagement.h"
+#include "ServicesDialog.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,7 +19,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    ServiceManagement * serviceDialog;
+    ServicesDialog * servicesDialog;
 
 };
 

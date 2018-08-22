@@ -25,15 +25,17 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         MainWindow.cpp \
-    ServiceManagement.cpp
+    ServicesDialog.cpp
 
 HEADERS += \
         MainWindow.h \
-    ServiceManagement.h
+    Services.h \
+    ServicesDialog.h \
+    DataList.h
 
 FORMS += \
         MainWindow.ui \
-    ServiceManagement.ui
+    ServicesDialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
