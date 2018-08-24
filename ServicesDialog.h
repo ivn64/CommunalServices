@@ -2,8 +2,8 @@
 #define SERVICESDIALOG_H
 
 #include <QDialog>
+#include <QList>
 
-#include "Datalist.h"
 #include "Services.h"
 
 namespace Ui {
@@ -24,7 +24,7 @@ private:
 
 private:
     Ui::ServicesDialog *ui;
-    DataList<Services *> servicesList;
+    QList<Services *> servicesList;
 };
 
 #endif // SERVICESDIALOG_H

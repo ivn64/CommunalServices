@@ -16,25 +16,21 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
 ServicesDialog::~ServicesDialog()
 {
     delete ui;
+    for (auto item : servicesList)
+        delete item;
 }
 
 void ServicesDialog::AddService()
 {
-    Services * addingItem = new Services();
+    Services * addingItem = new Services;
     servicesList.push_back(addingItem);
     ui->sevicesListWidget->addItem(addingItem->name);
 }
 
 void ServicesDialog::RemoveService()
 {
-
-    //servicesList.~DataList();
-
-
     auto currentItem = ui->sevicesListWidget->currentItem();
     if (currentItem)
         ui->sevicesListWidget->removeItemWidget(currentItem);
-
-
 }
 

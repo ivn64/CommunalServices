@@ -31,7 +31,7 @@ HEADERS += \
         MainWindow.h \
     Services.h \
     ServicesDialog.h \
-    DataList.h
+    Data.h
 
 FORMS += \
         MainWindow.ui \
