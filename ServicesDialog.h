@@ -14,6 +14,14 @@ class ServicesDialog : public QDialog
 {
     Q_OBJECT
 
+    enum ServiceRole
+    {
+        name = Qt::UserRole,
+        meter,
+        unit,
+        price
+    };
+
 public:
     explicit ServicesDialog(QWidget *parent = nullptr);
     ~ServicesDialog();
@@ -21,6 +29,7 @@ public:
 private:
     void AddService();
     void RemoveService();
+    void fillFields();
 
 private:
     Ui::ServicesDialog *ui;

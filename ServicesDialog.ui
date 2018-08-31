@@ -24,7 +24,10 @@
       </widget>
      </item>
      <item>
-      <widget class="QListWidget" name="sevicesListWidget"/>
+      <widget class="QListWidget" name="servicesListWidget"/>
+     </item>
+     <item>
+      <widget class="QListView" name="listView"/>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
