@@ -6,7 +6,6 @@
 
 #include "Service.h"
 #include "ServicesList.h"
-#include "ServicesList1.h"
 
 namespace Ui {
 class ServicesDialog;
@@ -38,7 +37,6 @@ private:
 private:
     Ui::ServicesDialog *ui;
     ServicesList * servicesList;
-    ServicesList1 * servicesList1;
 };
 
 }

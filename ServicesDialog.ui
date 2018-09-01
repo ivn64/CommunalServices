@@ -24,9 +24,6 @@
       </widget>
      </item>
      <item>
-      <widget class="QTableView" name="servicesTableView"/>
-     </item>
-     <item>
       <widget class="QListWidget" name="listWidget"/>
      </item>
      <item>

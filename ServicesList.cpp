@@ -1,55 +1,29 @@
 #include "ServicesList.h"
 
-ServicesList::ServicesList(QObject *parent) : QAbstractTableModel(parent)
+ServicesList::ServicesList()
 {
-    servicesList = new QList<Service> ();
-    Service test;
-    servicesList->append(test);
+    servicesList = new QList<Service *>();
 }
 
-void ServicesList::addService(Service& newService)
+void ServicesList::addService(Service * service)
 {
-    beginInsertRows(QModelIndex(), servicesList->size(), servicesList->size());
-    servicesList->append(newService);
-    endInsertRows();
+    servicesList->append(service);
 }
 
-void ServicesList::removeService(const QModelIndex & index)
+void ServicesList::removeService(int index)
 {
-    beginRemoveRows(QModelIndex(), index.row(), index.row());
-    servicesList->removeAt(index.row());
-    endRemoveRows();
-}
-
- int ServicesList::columnCount(const QModelIndex & parent) const
-{
-    return 4;
-}
-
-int ServicesList::rowCount(const QModelIndex& parent) const
-{
-    return servicesList->size();
-}
-
-QVariant ServicesList::data(const QModelIndex& index, int role) const
-{
-    if (index.isValid() && role == Qt::DisplayRole)
-        return getData(index.row(), index.column());
-    return QVariant();
-}
-
-QVariant ServicesList::getData(int num, int position) const
-{
-    switch (position) {
-        case 0:
-            return QVariant(servicesList->at(num).name);
-        case 1:
-            return QVariant(servicesList->at(num).isMeter);
-        case 2:
-            return QVariant(servicesList->at(num).price);
-        case 3:
-            return QVariant(servicesList->at(num).unit);
-        default:
-            return QVariant();
+    if (index > -1 && index < servicesList->count())
+    {
+        delete servicesList->at(index);
+        servicesList->removeAt(index);
     }
+}
+
+Service * ServicesList::getService(int index) const
+{
+    if (index > -1 && index < servicesList->count())
+    {
+        return servicesList->at(index);
+    }
+    return nullptr;
 }

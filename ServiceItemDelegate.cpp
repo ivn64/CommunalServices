@@ -30,6 +30,10 @@ void ServiceItemDelegate::paint(QPainter *painter, const QStyleOptionViewItem &o
     QRect textRect = option.rect.adjusted(0, 0, 50, 50);
     QString elidedText = fontMetrics.elidedText(themeStyle, Qt::ElideRight, 100);
     painter->drawText(textRect.left(), textRect.top(), textRect.width(), textRect.height(), Qt::AlignLeft, elidedText, &textRect);
+    if(option.state & QStyle::State_Selected)
+    {
+        painter->fillRect(fillRect, "green");
+    }
 }
 
 QSize ServiceItemDelegate::sizeHint ( const QStyleOptionViewItem & option, const QModelIndex & index ) const
