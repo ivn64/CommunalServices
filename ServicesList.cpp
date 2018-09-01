@@ -3,6 +3,8 @@
 ServicesList::ServicesList(QObject *parent) : QAbstractTableModel(parent)
 {
     servicesList = new QList<Service> ();
+    Service test;
+    servicesList->append(test);
 }
 
 void ServicesList::addService(Service& newService)

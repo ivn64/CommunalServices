@@ -13,53 +13,42 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
 
     setModal(true);
 
-    dataList = new ServicesList(this);
+    servicesList = new ServicesList(this);
 
-    ui->tableView->setModel(dataList);
+    ui->servicesTableView->setModel(servicesList);
 
     connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::AddService);
     connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::RemoveService);
-    connect(ui->servicesListWidget, &QListWidget::clicked, this, &ServicesDialog::fillFields);
+    connect(ui->servicesTableView,  &QTableView::clicked, this, &ServicesDialog::fillFields);
 }
 
 ServicesDialog::~ServicesDialog()
 {
     delete ui;
-    for (auto item : servicesList)
-        delete item;
 }
 
 void ServicesDialog::AddService()
 {
-    /*servicesList.push_back(new Service);
-    ui->servicesListWidget->addItem(servicesList.back()->name);*/
-
-    //ui->listView->setModel()
-
-    /*QListWidgetItem * item = new QListWidgetItem(ui->servicesListWidget);
-    item->setData(ServiceRole::name, "new sss");
-    item->setData(ServiceRole::price, "0");
-    item->setData(ServiceRole::meter, "true");
-    item->setData(ServiceRole::unit, "m2");*/
     Service service;
-    dataList->addService(service);
+    servicesList->addService(service);
 }
 
 void ServicesDialog::RemoveService()
 {
-   /* auto currentItem = ui->servicesListWidget->currentItem();
-    if (currentItem)
-        delete currentItem;*/
-   //auto currentItem = ui->servicesListWidget->currentItem();
-    auto currentItem = ui->servicesListWidget->currentItem();
-
+    QModelIndex index = ui->servicesTableView->selectionModel()->currentIndex();
+    if (index.isValid())
+        servicesList->removeService(index);
 }
 
 void ServicesDialog::fillFields()
 {
-    auto currentItem = ui->servicesListWidget->currentItem();
-    ui->serviceLineEdit->setText(currentItem->data(ServiceRole::name).toString());
-    currentItem->data(ServiceRole::meter).toBool() == true ? ui->meterRadioButton->setChecked(true)
-                                                           : ui->tariffRadioButton->setChecked(true);
+    QModelIndex index = ui->servicesTableView->selectionModel()->currentIndex();
+    if (index.isValid())
+    {
+        ui->serviceLineEdit->setText(servicesList->data(index).toString());
+        servicesList->data(index).toBool() == true ? ui->meterRadioButton->setChecked(true)
+                                                               : ui->tariffRadioButton->setChecked(true);
+
+    }
 }
 
