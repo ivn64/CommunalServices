@@ -19,7 +19,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    ServicesDialog * servicesDialog;
+    Services::ServicesDialog * servicesDialog;
 
 };
 

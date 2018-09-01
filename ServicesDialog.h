@@ -6,10 +6,21 @@
 
 #include "Service.h"
 #include "ServicesList.h"
+#include "ServicesList1.h"
 
 namespace Ui {
 class ServicesDialog;
 }
+
+namespace Services {
+
+enum ThemeItemRole
+{
+      Name = Qt::UserRole + 1
+    , IsMeter
+    , Unit
+    , Price
+};
 
 class ServicesDialog : public QDialog
 {
@@ -27,6 +38,9 @@ private:
 private:
     Ui::ServicesDialog *ui;
     ServicesList * servicesList;
+    ServicesList1 * servicesList1;
 };
+
+}
 
 #endif // SERVICESDIALOG_H
