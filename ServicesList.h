@@ -10,12 +10,13 @@ class ServicesList
 {
 public:
     ServicesList();
+    ~ServicesList();
     void addService(Service * service);
     void removeService(int index);
     Service * getService(int index) const;
 
 private:
-    QList<Service *> * servicesList;
+    QList<Service *> servicesList;
 };
 
 #endif // SERVICESLIST1_H
