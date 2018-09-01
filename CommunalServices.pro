@@ -32,7 +32,6 @@ SOURCES += \
 HEADERS += \
         MainWindow.h \
     ServicesDialog.h \
-    Data.h \
     Service.h \
     ServiceItemDelegate.h \
     ServicesList.h
@@ -45,3 +44,9 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES += \
+    style.qss
+
+RESOURCES += \
+    resources.qrc

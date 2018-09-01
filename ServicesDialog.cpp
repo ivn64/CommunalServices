@@ -17,11 +17,11 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
 
     servicesList = new ServicesList();
 
-    ui->listWidget->setItemDelegate(new ServiceItemDelegate(this));
+    ui->servicesListWidget->setItemDelegate(new ServiceItemDelegate(this));
 
-    connect(ui->addButton,         &QPushButton::clicked, this, &ServicesDialog::AddService   );
-    connect(ui->removeButton,      &QPushButton::clicked, this, &ServicesDialog::RemoveService);
-    connect(ui->listWidget,        &QListWidget::clicked, this, &ServicesDialog::fillFields   );
+    connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::AddService   );
+    connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::RemoveService);
+    connect(ui->servicesListWidget, &QListWidget::clicked, this, &ServicesDialog::fillFields   );
 }
 
 ServicesDialog::~ServicesDialog()
@@ -38,23 +38,23 @@ void ServicesDialog::AddService()
     item->setData(Services::IsMeter, service.isMeter);
     item->setData(Services::Price, service.price);
     item->setData(Services::Unit, service.unit);
-    ui->listWidget->addItem(item);
+    ui->servicesListWidget->addItem(item);
 }
 
 void ServicesDialog::RemoveService()
 {
-    auto index = ui->listWidget->currentRow();
+    auto index = ui->servicesListWidget->currentRow();
     if (index != -1)
     {
-        delete ui->listWidget->currentItem();
-        servicesList->removeService(ui->listWidget->currentRow());
-        ui->listWidget->setCurrentRow(-1);
+        delete ui->servicesListWidget->currentItem();
+        servicesList->removeService(ui->servicesListWidget->currentRow());
+        ui->servicesListWidget->setCurrentRow(-1);
     }
 }
 
 void ServicesDialog::fillFields()
 {
-    Service * currentService = servicesList->getService(ui->listWidget->currentRow());
+    Service * currentService = servicesList->getService(ui->servicesListWidget->currentRow());
     ui->serviceLineEdit->setText(currentService->name);
     currentService->isMeter == true ? ui->meterRadioButton->setChecked(true)
                                                 : ui->tariffRadioButton->setChecked(true);
