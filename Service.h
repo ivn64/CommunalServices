@@ -3,7 +3,7 @@
 
 #include <QString>
 
-struct Services
+struct Service
 {
     QString name = "Новая услуга";
     bool isMeter = true;

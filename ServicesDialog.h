@@ -4,7 +4,8 @@
 #include <QDialog>
 #include <QList>
 
-#include "Services.h"
+#include "Service.h"
+#include "ServicesList.h"
 
 namespace Ui {
 class ServicesDialog;
@@ -16,7 +17,7 @@ class ServicesDialog : public QDialog
 
     enum ServiceRole
     {
-        name = Qt::UserRole,
+        name = Qt::UserRole + 1,
         meter,
         unit,
         price
@@ -33,7 +34,8 @@ private:
 
 private:
     Ui::ServicesDialog *ui;
-    QList<Services *> servicesList;
+    QList<Service *> servicesList;
+    ServicesList * dataList;
 };
 
 #endif // SERVICESDIALOG_H

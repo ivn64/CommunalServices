@@ -25,13 +25,15 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         MainWindow.cpp \
-    ServicesDialog.cpp
+    ServicesDialog.cpp \
+    ServicesList.cpp
 
 HEADERS += \
         MainWindow.h \
-    Services.h \
     ServicesDialog.h \
-    Data.h
+    Data.h \
+    ServicesList.h \
+    Service.h
 
 FORMS += \
         MainWindow.ui \

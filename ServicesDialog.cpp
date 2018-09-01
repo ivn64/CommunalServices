@@ -3,6 +3,8 @@
 
 #include <QListWidgetItem>
 
+#include "ServicesList.h"
+
 ServicesDialog::ServicesDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ServicesDialog)
@@ -10,6 +12,10 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
     ui->setupUi(this);
 
     setModal(true);
+
+    dataList = new ServicesList(this);
+
+    ui->tableView->setModel(dataList);
 
     connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::AddService);
     connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::RemoveService);
@@ -25,8 +31,8 @@ ServicesDialog::~ServicesDialog()
 
 void ServicesDialog::AddService()
 {
-    servicesList.push_back(new Services);
-    ui->servicesListWidget->addItem(servicesList.back()->name);
+    /*servicesList.push_back(new Service);
+    ui->servicesListWidget->addItem(servicesList.back()->name);*/
 
     //ui->listView->setModel()
 
@@ -35,6 +41,8 @@ void ServicesDialog::AddService()
     item->setData(ServiceRole::price, "0");
     item->setData(ServiceRole::meter, "true");
     item->setData(ServiceRole::unit, "m2");*/
+    Service service;
+    dataList->addService(service);
 }
 
 void ServicesDialog::RemoveService()
