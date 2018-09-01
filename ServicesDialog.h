@@ -11,16 +11,6 @@ namespace Ui {
 class ServicesDialog;
 }
 
-namespace Services {
-
-enum ThemeItemRole
-{
-      Name = Qt::UserRole + 1
-    , IsMeter
-    , Unit
-    , Price
-};
-
 class ServicesDialog : public QDialog
 {
     Q_OBJECT
@@ -30,15 +20,13 @@ public:
     ~ServicesDialog();
 
 private:
-    void AddService();
-    void RemoveService();
+    void addService();
+    void removeService();
     void fillFields();
 
 private:
     Ui::ServicesDialog *ui;
     ServicesList * servicesList;
 };
-
-}
 
 #endif // SERVICESDIALOG_H

@@ -26,14 +26,12 @@ SOURCES += \
         main.cpp \
         MainWindow.cpp \
     ServicesDialog.cpp \
-    ServiceItemDelegate.cpp \
     ServicesList.cpp
 
 HEADERS += \
         MainWindow.h \
     ServicesDialog.h \
     Service.h \
-    ServiceItemDelegate.h \
     ServicesList.h
 
 FORMS += \
