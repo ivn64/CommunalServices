@@ -2,7 +2,6 @@
 #include "ui_ServicesDialog.h"
 
 #include <QListWidgetItem>
-#include <QDoubleValidator>
 
 ServicesDialog::ServicesDialog(QWidget *parent) :
     QDialog(parent),
@@ -35,9 +34,8 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
     {
         if (ui->servicesListWidget->currentItem()->isSelected())
         {
-            if (text.isEmpty( ))
-                text = "0";
-            servicesList->getService(ui->servicesListWidget->currentRow())->price = text.toFloat();
+            QLocale locale;
+            servicesList->getService(ui->servicesListWidget->currentRow())->price = locale.toFloat(text);
         }
     });
     connect(ui->unitComboBox, &QComboBox::currentTextChanged, [this](QString text)
@@ -72,7 +70,7 @@ void ServicesDialog::removeService()
     if (index != -1)
     {
         delete ui->servicesListWidget->currentItem();
-        servicesList->removeService(ui->servicesListWidget->currentRow());
+        servicesList->removeService(index);
         ui->servicesListWidget->setCurrentRow(-1);
     }
 }
