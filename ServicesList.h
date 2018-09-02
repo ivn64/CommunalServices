@@ -1,7 +1,6 @@
 #ifndef SERVICESLIST1_H
 #define SERVICESLIST1_H
 
-#include <QVariant>
 #include <QList>
 
 #include "Service.h"
@@ -15,7 +14,7 @@ public:
     void addService(Service * service);
     void removeService(int index);
     Service * getService(int index) const;
-    void save();
+    void save(QString fileName);
 
 private:
     QList<T> servicesList;
@@ -61,13 +60,23 @@ Service * ServicesList<T>::getService(int index) const
 }
 
 template <class T>
-void ServicesList<T>::save()
+void ServicesList<T>::save(QString fileName)
 {
-    QFile file( "service.txt" );
+    /*Service * test = new Service();
+    QFile file("services.txt");
     QDataStream stream( &file );
-
     file.open( QIODevice::WriteOnly );
-    stream << servicesList.at(0);
+    stream << test;
+    file.close();*/
+
+    QFile file(fileName);
+    QDataStream stream(&file);
+    if (file.open(QIODevice::WriteOnly))
+    {
+        stream << servicesList.size();
+        for (auto item : servicesList)
+            stream << item;
+    }
     file.close();
 }
 
