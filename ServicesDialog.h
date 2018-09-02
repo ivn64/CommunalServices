@@ -26,7 +26,7 @@ private:
 
 private:
     Ui::ServicesDialog *ui;
-    ServicesList * servicesList;
+    ServicesList<Service *> * servicesList;
 };
 
 #endif // SERVICESDIALOG_H

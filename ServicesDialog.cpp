@@ -16,7 +16,7 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
 
     ui->priceLineEdit->setValidator(new QDoubleValidator(ui->priceLineEdit));
 
-    servicesList = new ServicesList();
+    servicesList = new ServicesList<Service *>();
 
     connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::addService   );
     connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::removeService);
