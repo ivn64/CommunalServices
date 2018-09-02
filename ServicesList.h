@@ -3,17 +3,15 @@
 
 #include <QList>
 
-#include "Service.h"
-
 template <class T>
 class ServicesList : QDataStream
 {
 public:
     ServicesList();
     ~ServicesList();
-    void addService(Service * service);
+    void addService(T service);
     void removeService(int index);
-    Service * getService(int index) const;
+    T getService(int index) const;
     void save(QString fileName);
 
 private:
@@ -34,7 +32,7 @@ ServicesList<T>::~ServicesList()
 }
 
 template <class T>
-void ServicesList<T>::addService(Service * service)
+void ServicesList<T>::addService(T service)
 {
     servicesList.append(service);
 }
@@ -50,7 +48,7 @@ void ServicesList<T>::removeService(int index)
 }
 
 template <class T>
-Service * ServicesList<T>::getService(int index) const
+T ServicesList<T>::getService(int index) const
 {
     if (index > -1 && index < servicesList.count())
     {
@@ -62,13 +60,6 @@ Service * ServicesList<T>::getService(int index) const
 template <class T>
 void ServicesList<T>::save(QString fileName)
 {
-    /*Service * test = new Service();
-    QFile file("services.txt");
-    QDataStream stream( &file );
-    file.open( QIODevice::WriteOnly );
-    stream << test;
-    file.close();*/
-
     QFile file(fileName);
     QDataStream stream(&file);
     if (file.open(QIODevice::WriteOnly))

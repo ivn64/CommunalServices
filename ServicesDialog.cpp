@@ -21,6 +21,8 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
     connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::addService   );
     connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::removeService);
     connect(ui->servicesListWidget, &QListWidget::clicked, this, &ServicesDialog::fillFields   );
+    connect(ui->cancelButton,       &QPushButton::clicked, this, &ServicesDialog::reject);
+    connect(ui->saveButton,         &QPushButton::clicked, this, &ServicesDialog::accept);
 
     connect(ui->serviceLineEdit, &QLineEdit::textEdited, [this](QString text)
     {

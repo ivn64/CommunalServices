@@ -16,7 +16,7 @@ class ServicesDialog : public QDialog
     Q_OBJECT
 
 public:
-    ServicesDialog(QWidget *parent = nullptr);
+    explicit ServicesDialog(QWidget *parent = nullptr);
     ~ServicesDialog();
 
 private:

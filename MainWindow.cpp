@@ -1,16 +1,20 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
-#include <QPushButton>
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
-    servicesDialog = new ServicesDialog(this);
-    connect(ui->servicesButton, &QPushButton::clicked, servicesDialog, &QDialog::show);
+    connect(ui->servicesButton, &QPushButton::clicked, []()
+    {
+        ServicesDialog services;
+        if (services.exec() == QDialog::Accepted)
+        {
+            int test = 0;
+        }
+    });
 }
 
 MainWindow::~MainWindow()
