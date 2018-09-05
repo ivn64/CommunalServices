@@ -18,7 +18,11 @@ public:
     ~MainWindow();
 
 private:
+    void servicesDialogShow();
+
+private:
     Ui::MainWindow *ui;
+    DataList<Service *> * servicesList;
 
 };
 

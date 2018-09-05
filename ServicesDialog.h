@@ -5,7 +5,7 @@
 #include <QList>
 
 #include "Service.h"
-#include "ServicesList.h"
+#include "DataList.h"
 
 namespace Ui {
 class ServicesDialog;
@@ -16,17 +16,18 @@ class ServicesDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ServicesDialog(QWidget *parent = nullptr);
+    explicit ServicesDialog(DataList<Service *> * services, QWidget *parent = nullptr);
     ~ServicesDialog();
 
 private:
     void addService();
     void removeService();
     void fillFields();
+    void fillList();
 
 private:
     Ui::ServicesDialog *ui;
-    ServicesList<Service *> * servicesList;
+    DataList<Service *> * servicesList;
 };
 
 #endif // SERVICESDIALOG_H

@@ -3,7 +3,7 @@
 
 #include <QListWidgetItem>
 
-ServicesDialog::ServicesDialog(QWidget *parent) :
+ServicesDialog::ServicesDialog(DataList<Service *> * services, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ServicesDialog)
 {
@@ -16,7 +16,14 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
 
     ui->priceLineEdit->setValidator(new QDoubleValidator(ui->priceLineEdit));
 
-    servicesList = new ServicesList<Service *>();
+    //servicesList = new ServicesList<Service *>();
+    servicesList = services;
+    for(int i = 0; i < servicesList->size(); ++i)
+    {
+        QListWidgetItem * item = new QListWidgetItem();
+        item->setData(Qt::DisplayRole, servicesList->at(i)->name);
+        ui->servicesListWidget->addItem(item);
+    }
 
     connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::addService   );
     connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::removeService);
@@ -28,7 +35,7 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
     {
         if (ui->servicesListWidget->currentItem()->isSelected())
         {
-            servicesList->getService(ui->servicesListWidget->currentRow())->name = text;
+            servicesList->at(ui->servicesListWidget->currentRow())->name = text;
             ui->servicesListWidget->currentItem()->setData(Qt::DisplayRole, text);
         }
     });
@@ -37,18 +44,18 @@ ServicesDialog::ServicesDialog(QWidget *parent) :
         if (ui->servicesListWidget->currentItem()->isSelected())
         {
             QLocale locale;
-            servicesList->getService(ui->servicesListWidget->currentRow())->price = locale.toFloat(text);
+            servicesList->at(ui->servicesListWidget->currentRow())->price = locale.toFloat(text);
         }
     });
     connect(ui->unitComboBox, &QComboBox::currentTextChanged, [this](QString text)
     {
         if (ui->servicesListWidget->currentItem()->isSelected())
-            servicesList->getService(ui->servicesListWidget->currentRow())->unit = text;
+            servicesList->at(ui->servicesListWidget->currentRow())->unit = text;
     });
     connect(ui->meterRadioButton, &QRadioButton::toggled, [this](bool value)
     {
         if (ui->servicesListWidget->currentItem()->isSelected())
-            servicesList->getService(ui->servicesListWidget->currentRow())->isMeter = value;
+            servicesList->at(ui->servicesListWidget->currentRow())->isMeter = value;
     });
 }
 
@@ -60,7 +67,7 @@ ServicesDialog::~ServicesDialog()
 void ServicesDialog::addService()
 {
     Service * service = new Service();
-    servicesList->addService(service);
+    servicesList->append(service);
     QListWidgetItem * item = new QListWidgetItem();
     item->setData(Qt::DisplayRole, service->name);
     ui->servicesListWidget->addItem(item);
@@ -72,16 +79,21 @@ void ServicesDialog::removeService()
     if (index != -1)
     {
         delete ui->servicesListWidget->currentItem();
-        servicesList->removeService(index);
+        servicesList->removeAt(index);
         ui->servicesListWidget->setCurrentRow(-1);
     }
 }
 
 void ServicesDialog::fillFields()
 {
-    Service * currentService = servicesList->getService(ui->servicesListWidget->currentRow());
+    Service * currentService = servicesList->at(ui->servicesListWidget->currentRow());
     ui->serviceLineEdit->setText(currentService->name);
     currentService->isMeter == true ? ui->meterRadioButton->setChecked(true) : ui->tariffRadioButton->setChecked(true);
     ui->priceLineEdit->setText(QString::number(currentService->price));
     ui->unitComboBox->setCurrentText(currentService->unit);
+}
+
+void ServicesDialog::fillList()
+{
+
 }

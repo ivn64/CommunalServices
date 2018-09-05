@@ -6,18 +6,21 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    servicesList = new DataList<Service *>();
 
-    connect(ui->servicesButton, &QPushButton::clicked, []()
-    {
-        ServicesDialog services;
-        if (services.exec() == QDialog::Accepted)
-        {
-            int test = 0;
-        }
-    });
+    connect(ui->servicesButton, &QPushButton::clicked, this, &MainWindow::servicesDialogShow);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::servicesDialogShow()
+{
+    ServicesDialog services(servicesList);
+    if (services.exec() == QDialog::Accepted)
+    {
+        servicesList->save("test.txt");
+    }
 }
