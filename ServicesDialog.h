@@ -18,6 +18,7 @@ class ServicesDialog : public QDialog
 public:
     explicit ServicesDialog(DataList<Service *> * services, QWidget *parent = nullptr);
     ~ServicesDialog();
+    DataList<Service *> * getServicesList();
 
 private:
     void addService();

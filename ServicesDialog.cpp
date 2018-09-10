@@ -16,20 +16,27 @@ ServicesDialog::ServicesDialog(DataList<Service *> * services, QWidget *parent) 
 
     ui->priceLineEdit->setValidator(new QDoubleValidator(ui->priceLineEdit));
 
-    //servicesList = new ServicesList<Service *>();
-    servicesList = services;
-    for(int i = 0; i < servicesList->size(); ++i)
+    servicesList = new DataList<Service *>();
+    for(int i = 0; i < services->size(); ++i)
     {
+        Service * addingService = new Service(services->at(i));
+        servicesList->append(addingService);
         QListWidgetItem * item = new QListWidgetItem();
-        item->setData(Qt::DisplayRole, servicesList->at(i)->name);
+        item->setData(Qt::DisplayRole, addingService->name);
         ui->servicesListWidget->addItem(item);
     }
 
     connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::addService   );
     connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::removeService);
     connect(ui->servicesListWidget, &QListWidget::clicked, this, &ServicesDialog::fillFields   );
-    connect(ui->cancelButton,       &QPushButton::clicked, this, &ServicesDialog::reject);
+    //connect(ui->cancelButton,       &QPushButton::clicked, this, &ServicesDialog::reject);
     connect(ui->saveButton,         &QPushButton::clicked, this, &ServicesDialog::accept);
+
+    connect(ui->cancelButton,       &QPushButton::clicked, [this]()
+    {
+            delete servicesList;
+            reject();
+    });
 
     connect(ui->serviceLineEdit, &QLineEdit::textEdited, [this](QString text)
     {
@@ -96,4 +103,9 @@ void ServicesDialog::fillFields()
 void ServicesDialog::fillList()
 {
 
+}
+
+DataList<Service *> *ServicesDialog::getServicesList()
+{
+    return servicesList;
 }

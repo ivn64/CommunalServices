@@ -7,6 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     servicesList = new DataList<Service *>();
+    servicesList->load("test.txt");
 
     connect(ui->servicesButton, &QPushButton::clicked, this, &MainWindow::servicesDialogShow);
 }
@@ -21,6 +22,8 @@ void MainWindow::servicesDialogShow()
     ServicesDialog services(servicesList);
     if (services.exec() == QDialog::Accepted)
     {
+        servicesList->removeAllItems();
+        servicesList = services.getServicesList();
         servicesList->save("test.txt");
     }
 }

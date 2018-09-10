@@ -2,6 +2,7 @@
 #define SERVICES_H
 
 #include <QString>
+#include <QDataStream>
 
 struct Service
 {
@@ -11,11 +12,30 @@ struct Service
     float price = 0;
 
     friend QDataStream &operator<<(QDataStream &d, Service * u);
+    friend QDataStream &operator>>(QDataStream &d, Service * u);
+
+    Service()
+    {
+    }
+
+    Service(const Service * obj)
+    {
+        name = obj->name;
+        isMeter = obj->isMeter;
+        unit = obj->unit;
+        price = obj->price;
+    }
 };
 
 inline QDataStream& operator<<( QDataStream& d, Service * u )
 {
     d << u->name << u->isMeter << u->unit << u->price;
+    return d;
+}
+
+inline QDataStream& operator>>( QDataStream& d, Service * u )
+{
+    d >> u->name >> u->isMeter >> u->unit >> u->price;
     return d;
 }
 
