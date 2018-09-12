@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>ServicesDialog</class>
- <widget class="QDialog" name="ServicesDialog">
+ <class>HousesDialog</class>
+ <widget class="QDialog" name="HousesDialog">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>566</width>
-    <height>437</height>
+    <width>625</width>
+    <height>528</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,21 +15,18 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
-    <widget class="QLabel" name="servicesLabel">
+    <widget class="QLabel" name="label">
      <property name="text">
-      <string>Список услуг</string>
+      <string>Список объектов</string>
      </property>
     </widget>
    </item>
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <property name="spacing">
-      <number>12</number>
-     </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QListWidget" name="servicesListWidget"/>
+        <widget class="QListWidget" name="housesListWidget"/>
        </item>
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout">
@@ -54,63 +51,58 @@
      <item>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <layout class="QFormLayout" name="formLayout">
+        <layout class="QFormLayout" name="formLayout_2">
          <item row="0" column="0">
-          <widget class="QLabel" name="servicesLabel_2">
+          <widget class="QLabel" name="descriptionLabel">
            <property name="text">
-            <string>Услуга</string>
+            <string>Объект</string>
            </property>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="serviceLineEdit"/>
+          <widget class="QLineEdit" name="houseLineEdit"/>
          </item>
          <item row="1" column="0">
-          <widget class="QLabel" name="servicesLabel_3">
+          <widget class="QLabel" name="adressLabel">
            <property name="text">
-            <string>Тарификация</string>
+            <string>Адрес</string>
            </property>
           </widget>
          </item>
          <item row="1" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
-           <item>
-            <widget class="QRadioButton" name="meterRadioButton">
-             <property name="text">
-              <string>счётчик</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QRadioButton" name="tariffRadioButton">
-             <property name="text">
-              <string>тариф</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
+          <widget class="QLineEdit" name="adressLineEdit"/>
          </item>
          <item row="2" column="0">
-          <widget class="QLabel" name="servicesLabel_5">
+          <widget class="QLabel" name="areaLabel">
            <property name="text">
-            <string>Ед. измерения</string>
+            <string>Площадь</string>
            </property>
           </widget>
          </item>
          <item row="2" column="1">
-          <widget class="QComboBox" name="unitComboBox"/>
-         </item>
-         <item row="3" column="1">
-          <layout class="QHBoxLayout" name="horizontalLayout_5">
-           <item>
-            <widget class="QLineEdit" name="priceLineEdit"/>
-           </item>
-          </layout>
+          <widget class="QLineEdit" name="areaLineEdit"/>
          </item>
          <item row="3" column="0">
-          <widget class="QLabel" name="servicesLabel_4">
+          <widget class="QLabel" name="peoplesLabel">
            <property name="text">
-            <string>Стоимость за ед.</string>
+            <string>Кол. человек</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="QLineEdit" name="peoplesLineEdit"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QRadioButton" name="apartmentHouseRadioButton">
+           <property name="text">
+            <string>многоквартирный дом</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="QRadioButton" name="privateHouseRadioButton">
+           <property name="text">
+            <string>частный дом</string>
            </property>
           </widget>
          </item>
@@ -130,7 +122,7 @@
         </spacer>
        </item>
        <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_6">
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QPushButton" name="saveButton">
            <property name="text">
@@ -154,22 +146,5 @@
   </layout>
  </widget>
  <resources/>
- <connections>
-  <connection>
-   <sender>cancelButton</sender>
-   <signal>clicked()</signal>
-   <receiver>ServicesDialog</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>482</x>
-     <y>414</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>282</x>
-     <y>218</y>
-    </hint>
-   </hints>
-  </connection>
- </connections>
+ <connections/>
 </ui>

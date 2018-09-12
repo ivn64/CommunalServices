@@ -25,17 +25,21 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         MainWindow.cpp \
-    ServicesDialog.cpp
+    ServicesDialog.cpp \
+    HousesDialog.cpp
 
 HEADERS += \
         MainWindow.h \
     ServicesDialog.h \
     Service.h \
-    DataList.h
+    DataList.h \
+    HousesDialog.h \
+    House.h
 
 FORMS += \
         MainWindow.ui \
-    ServicesDialog.ui
+    ServicesDialog.ui \
+    HousesDialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

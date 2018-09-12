@@ -24,7 +24,6 @@ private:
     void addService();
     void removeService();
     void fillFields();
-    void fillList();
 
 private:
     Ui::ServicesDialog *ui;

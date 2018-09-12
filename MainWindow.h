@@ -3,7 +3,9 @@
 
 #include <QMainWindow>
 
-#include "ServicesDialog.h"
+#include "DataList.h"
+#include "Service.h"
+#include "House.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,10 +21,12 @@ public:
 
 private:
     void servicesDialogShow();
+    void housesDialogShow();
 
 private:
     Ui::MainWindow *ui;
     DataList<Service *> * servicesList;
+    DataList<House *> * housesList;
 
 };
 

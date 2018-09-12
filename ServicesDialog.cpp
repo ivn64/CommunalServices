@@ -9,6 +9,7 @@ ServicesDialog::ServicesDialog(DataList<Service *> * services, QWidget *parent) 
 {
     ui->setupUi(this);
     setModal(true);
+
     ui->unitComboBox->addItem("м2");
     ui->unitComboBox->addItem("м3");
     ui->unitComboBox->addItem("кВт*ч");
@@ -29,7 +30,6 @@ ServicesDialog::ServicesDialog(DataList<Service *> * services, QWidget *parent) 
     connect(ui->addButton,          &QPushButton::clicked, this, &ServicesDialog::addService   );
     connect(ui->removeButton,       &QPushButton::clicked, this, &ServicesDialog::removeService);
     connect(ui->servicesListWidget, &QListWidget::clicked, this, &ServicesDialog::fillFields   );
-    //connect(ui->cancelButton,       &QPushButton::clicked, this, &ServicesDialog::reject);
     connect(ui->saveButton,         &QPushButton::clicked, this, &ServicesDialog::accept);
 
     connect(ui->cancelButton,       &QPushButton::clicked, [this]()
@@ -37,7 +37,6 @@ ServicesDialog::ServicesDialog(DataList<Service *> * services, QWidget *parent) 
             delete servicesList;
             reject();
     });
-
     connect(ui->serviceLineEdit, &QLineEdit::textEdited, [this](QString text)
     {
         if (ui->servicesListWidget->currentItem()->isSelected())
@@ -100,12 +99,7 @@ void ServicesDialog::fillFields()
     ui->unitComboBox->setCurrentText(currentService->unit);
 }
 
-void ServicesDialog::fillList()
-{
-
-}
-
-DataList<Service *> *ServicesDialog::getServicesList()
+DataList<Service *> * ServicesDialog::getServicesList()
 {
     return servicesList;
 }
