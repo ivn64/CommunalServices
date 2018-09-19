@@ -26,7 +26,10 @@ SOURCES += \
         main.cpp \
         MainWindow.cpp \
     ServicesDialog.cpp \
-    HousesDialog.cpp
+    HousesDialog.cpp \
+    Service.cpp \
+    House.cpp \
+    ProfitTable.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -34,7 +37,8 @@ HEADERS += \
     Service.h \
     DataList.h \
     HousesDialog.h \
-    House.h
+    House.h \
+    ProfitTable.h
 
 FORMS += \
         MainWindow.ui \

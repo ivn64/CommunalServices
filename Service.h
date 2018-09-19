@@ -4,27 +4,29 @@
 #include <QString>
 #include <QDataStream>
 
-struct Service
+class Service
 {
-    QString name = "Новая услуга";
-    bool isMeter = true;
-    QString unit = "м2";
-    float price = 0;
+public:
+    Service();
+    Service(const Service * obj);
+
+    QString getName();
+    void setName(QString value);
+    bool getIsMeter();
+    void setIsMeter(bool value);
+    QString getUnit();
+    void setUnit(QString value);
+    float getPrice();
+    void setPrice(float value);
 
     friend QDataStream &operator<<(QDataStream &d, Service * u);
     friend QDataStream &operator>>(QDataStream &d, Service * u);
 
-    Service()
-    {
-    }
-
-    Service(const Service * obj)
-    {
-        name = obj->name;
-        isMeter = obj->isMeter;
-        unit = obj->unit;
-        price = obj->price;
-    }
+private:
+    QString name;
+    bool isMeter;
+    QString unit;
+    float price;
 };
 
 inline QDataStream& operator<<( QDataStream& d, Service * u )

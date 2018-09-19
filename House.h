@@ -4,29 +4,33 @@
 #include <QString>
 #include <QDataStream>
 
-struct House
+class House
 {
-    QString name = "Новый объект";
-    QString adress = "Адрес";
-    float area = 0;
-    int numberOfPeoples = 0;
-    bool isPrivate = false;
+public:
+    House();
+    House(const House * obj);
+
+    QString getName();
+    void setName(QString value);
+    QString getAdress();
+    void setAdress(QString value);
+    float getArea();
+    void setArea(float value);
+    int getNumberOfPeoples();
+    void setNumberOfPeoples(int value);
+    bool getIsPrivate();
+    void setIsPrivate(bool value);
 
     friend QDataStream &operator<<(QDataStream &d, House * u);
     friend QDataStream &operator>>(QDataStream &d, House * u);
 
-    House()
-    {
-    }
+private:
+    QString name;
+    QString adress;
+    float area;
+    int numberOfPeoples;
+    bool isPrivate;
 
-    House(const House * obj)
-    {
-        name = obj->name;
-        adress = obj->adress;
-        area = obj->area;
-        numberOfPeoples = obj->numberOfPeoples;
-        isPrivate = obj->isPrivate;
-    }
 };
 
 inline QDataStream& operator<<( QDataStream& d, House * u )

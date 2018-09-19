@@ -1,5 +1,5 @@
-#ifndef SERVICESLIST1_H
-#define SERVICESLIST1_H
+#ifndef DATALIST_H
+#define DATALIST_H
 
 #include <QList>
 
@@ -91,4 +91,4 @@ void DataList<T>::load(QString fileName)
     file.close();
 }
 
-#endif // SERVICESLIST1_H
+#endif // DATALIST_H

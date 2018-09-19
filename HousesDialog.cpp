@@ -19,7 +19,7 @@ HousesDialog::HousesDialog(DataList<House *> * houses, QWidget *parent) :
         House * addingHouse = new House(houses->at(i));
         housesList->append(addingHouse);
         QListWidgetItem * item = new QListWidgetItem();
-        item->setData(Qt::DisplayRole, addingHouse->name);
+        item->setData(Qt::DisplayRole, addingHouse->getName());
         ui->housesListWidget->addItem(item);
     }
 
@@ -37,32 +37,32 @@ HousesDialog::HousesDialog(DataList<House *> * houses, QWidget *parent) :
     {
         if (ui->housesListWidget->currentItem()->isSelected())
         {
-            housesList->at(ui->housesListWidget->currentRow())->name = text;
+            housesList->at(ui->housesListWidget->currentRow())->setName(text);
             ui->housesListWidget->currentItem()->setData(Qt::DisplayRole, text);
         }
     });
     connect(ui->adressLineEdit, &QLineEdit::textEdited, [this](QString text)
     {
         if (ui->housesListWidget->currentItem()->isSelected())
-            housesList->at(ui->housesListWidget->currentRow())->adress = text;
+            housesList->at(ui->housesListWidget->currentRow())->setAdress(text);
     });
     connect(ui->areaLineEdit, &QLineEdit::textEdited, [this](QString text)
     {
         if (ui->housesListWidget->currentItem()->isSelected())
         {
             QLocale locale;
-            housesList->at(ui->housesListWidget->currentRow())->area = locale.toFloat(text);
+            housesList->at(ui->housesListWidget->currentRow())->setArea(locale.toFloat(text));
         }
     });
     connect(ui->peoplesLineEdit, &QLineEdit::textEdited, [this](QString text)
     {
         if (ui->housesListWidget->currentItem()->isSelected())
-            housesList->at(ui->housesListWidget->currentRow())->numberOfPeoples = text.toInt();
+            housesList->at(ui->housesListWidget->currentRow())->setNumberOfPeoples(text.toInt());
     });
     connect(ui->privateHouseRadioButton, &QRadioButton::toggled, [this](bool value)
     {
         if (ui->housesListWidget->currentItem()->isSelected())
-            housesList->at(ui->housesListWidget->currentRow())->isPrivate = value;
+            housesList->at(ui->housesListWidget->currentRow())->setIsPrivate(value);
     });
 }
 
@@ -76,7 +76,7 @@ void HousesDialog::addHouse()
     House * house = new House();
     housesList->append(house);
     QListWidgetItem * item = new QListWidgetItem();
-    item->setData(Qt::DisplayRole, house->name);
+    item->setData(Qt::DisplayRole, house->getName());
     ui->housesListWidget->addItem(item);
 }
 
@@ -94,11 +94,11 @@ void HousesDialog::removeHouse()
 void HousesDialog::fillFields()
 {
     House * currentService = housesList->at(ui->housesListWidget->currentRow());
-    ui->houseLineEdit->setText(currentService->name);
-    ui->adressLineEdit->setText(currentService->adress);
-    ui->areaLineEdit->setText(QString::number(currentService->area));
-    ui->peoplesLineEdit->setText(QString::number(currentService->numberOfPeoples));
-    currentService->isPrivate == true ? ui->privateHouseRadioButton->setChecked(true)
+    ui->houseLineEdit->setText(currentService->getName());
+    ui->adressLineEdit->setText(currentService->getAdress());
+    ui->areaLineEdit->setText(QString::number(currentService->getArea()));
+    ui->peoplesLineEdit->setText(QString::number(currentService->getNumberOfPeoples()));
+    currentService->getIsPrivate() == true ? ui->privateHouseRadioButton->setChecked(true)
                                       : ui->apartmentHouseRadioButton->setChecked(true);
 }
 
