@@ -22,6 +22,7 @@ public:
 private:
     void servicesDialogShow();
     void housesDialogShow();
+    void profitsDialogShow();
 
 private:
     Ui::MainWindow *ui;

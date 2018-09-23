@@ -3,6 +3,7 @@
 
 #include "ServicesDialog.h"
 #include "HousesDialog.h"
+#include "ProfitsDialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -17,7 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
     housesList->load("houses.dat");
 
     connect(ui->servicesButton, &QPushButton::clicked, this, &MainWindow::servicesDialogShow);
-    connect(ui->housesButton, &QPushButton::clicked, this, &MainWindow::housesDialogShow);
+    connect(ui->housesButton,   &QPushButton::clicked, this, &MainWindow::housesDialogShow  );
+    connect(ui->addButton,      &QPushButton::clicked, this, &MainWindow::profitsDialogShow );
 }
 
 MainWindow::~MainWindow()
@@ -45,4 +47,10 @@ void MainWindow::housesDialogShow()
         housesList = houses.getHousesList();
         housesList->save("houses.dat");
     }
+}
+
+void MainWindow::profitsDialogShow()
+{
+    ProfitsDialog profits;
+    profits.exec();
 }

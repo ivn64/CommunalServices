@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ProfitsDialog</class>
+ <widget class="QDialog" name="ProfitsDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>266</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QFormLayout" name="formLayout">
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_4">
+       <property name="text">
+        <string>Год</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QComboBox" name="yearComboBox">
+       <item>
+        <property name="text">
+         <string>2016</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2017</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2018</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2019</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>2020</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>Месяц</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QComboBox" name="monthComboBox">
+       <item>
+        <property name="text">
+         <string>Январь</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Февраль</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Март</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Апрель</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Май</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Июнь</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Июль</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Август</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Сентябрь</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Октябрь</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Ноябрь</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>Декабрь</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Услуга</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QComboBox" name="serviceComboBox"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="text">
+        <string>Показания</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="indicationsLineEdit"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_3">
+       <property name="text">
+        <string>Стоимость</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="costLineEdit"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="label_6">
+       <property name="text">
+        <string>Начисления</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QLineEdit" name="accuralsLineEdit"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="text">
+          <string>руб.</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>Сохранить</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>Отмена</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

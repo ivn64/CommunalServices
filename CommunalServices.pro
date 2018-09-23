@@ -29,7 +29,8 @@ SOURCES += \
     HousesDialog.cpp \
     Service.cpp \
     House.cpp \
-    ProfitTable.cpp
+    ProfitTable.cpp \
+    ProfitsDialog.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -38,12 +39,14 @@ HEADERS += \
     DataList.h \
     HousesDialog.h \
     House.h \
-    ProfitTable.h
+    ProfitTable.h \
+    ProfitsDialog.h
 
 FORMS += \
         MainWindow.ui \
     ServicesDialog.ui \
-    HousesDialog.ui
+    HousesDialog.ui \
+    ProfitsDialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
