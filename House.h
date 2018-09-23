@@ -3,6 +3,10 @@
 
 #include <QString>
 #include <QDataStream>
+#include <QList>
+
+#include "DataList.h"
+#include "ProfitTable.h"
 
 class House
 {
@@ -30,18 +34,23 @@ private:
     float area;
     int numberOfPeoples;
     bool isPrivate;
+    QList<ProfitTable> test;
 
 };
 
 inline QDataStream& operator<<( QDataStream& d, House * u )
 {
     d << u->name << u->adress << u->area << u->numberOfPeoples << u->isPrivate;
+    for (auto item : u->test)
+        d << &item;
     return d;
 }
 
 inline QDataStream& operator>>( QDataStream& d, House * u )
 {
     d >> u->name >> u->adress >> u->area >> u->numberOfPeoples >> u->isPrivate;
+    for (auto item : u->test)
+        d >> &item;
     return d;
 }
 
