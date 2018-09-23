@@ -15,12 +15,12 @@ void ProfitTable::setYear(int value)
     year = value;
 }
 
-QString ProfitTable::getMonth() const
+int ProfitTable::getMonth() const
 {
     return month;
 }
 
-void ProfitTable::setMonth(const QString value)
+void ProfitTable::setMonth(const int value)
 {
     month = value;
 }
