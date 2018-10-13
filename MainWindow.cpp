@@ -24,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
 MainWindow::~MainWindow()
 {
+    delete servicesList;
+    delete housesList;
     delete ui;
 }
 

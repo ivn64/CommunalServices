@@ -27,16 +27,6 @@
       <widget class="QComboBox" name="yearComboBox">
        <item>
         <property name="text">
-         <string>2016</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>2017</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
          <string>2018</string>
         </property>
        </item>
