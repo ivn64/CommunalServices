@@ -11,8 +11,10 @@ QRadioButton        { color: #a1c5e8 }
 
 /* MainWindow */
 
-QPushButton#housesButton { max-height: 20px; min-height: 20px; }
-QPushButton#addButton    { max-height: 20px; min-height: 20px; }
+QPushButton#housesButton     { max-height: 20px; min-height: 20px; }
+QPushButton#addButton        { max-height: 20px; min-height: 20px; }
+QPushButton#addYearButton,
+QPushButton#removeYearButton { max-height: 20px; min-height: 20px; max-width: 20px; min-width: 20px; }
 
 /* ServicesDialog */
 
@@ -30,5 +32,5 @@ QDialog#HousesDialog QListWidget#housesListWidget::item { max-height: 20px; min-
 
 /* ProfitsDialog */
 
-QDialog#ProfitsDialog             { max-height: 270px; min-height: 270px; max-width: 300px; min-width: 300px; }
-QDialog#ProfitsDialog QPushButton { max-height: 20px; min-height: 20px; max-width: 120px; min-width: 120px; }
+QDialog#ProfitsDialog                  { max-height: 270px; min-height: 270px; max-width: 300px; min-width: 300px; }
+QDialog#ProfitsDialog QPushButton      { max-height: 20px; min-height: 20px; max-width: 120px; min-width: 120px; }

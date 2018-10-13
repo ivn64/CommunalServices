@@ -51,6 +51,6 @@ void MainWindow::housesDialogShow()
 
 void MainWindow::profitsDialogShow()
 {
-    ProfitsDialog profits;
+    ProfitsDialog profits(servicesList);
     profits.exec();
 }

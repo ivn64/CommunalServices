@@ -6,7 +6,7 @@
 #include <QList>
 
 #include "DataList.h"
-#include "ProfitTable.h"
+#include "ProfitsDate.h"
 
 class House
 {
@@ -34,7 +34,7 @@ private:
     float area;
     int numberOfPeoples;
     bool isPrivate;
-    QList<ProfitTable> profits;
+    QList<ProfitsDate> profits;
 
 };
 

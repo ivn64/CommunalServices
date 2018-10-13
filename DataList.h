@@ -23,8 +23,7 @@ DataList<T>::DataList()
 template <class T>
 DataList<T>::~DataList()
 {
-    for(int i = 0; i < this->size(); i++)
-        delete this->at(i);
+    qDeleteAll(this->begin(), this->end());
 }
 
 template <class T>

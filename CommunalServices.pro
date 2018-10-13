@@ -29,8 +29,9 @@ SOURCES += \
     HousesDialog.cpp \
     Service.cpp \
     House.cpp \
-    ProfitTable.cpp \
-    ProfitsDialog.cpp
+    ProfitsDialog.cpp \
+    Profit.cpp \
+    ProfitsDate.cpp
 
 HEADERS += \
         MainWindow.h \
@@ -39,8 +40,9 @@ HEADERS += \
     DataList.h \
     HousesDialog.h \
     House.h \
-    ProfitTable.h \
-    ProfitsDialog.h
+    ProfitsDialog.h \
+    Profit.h \
+    ProfitsDate.h
 
 FORMS += \
         MainWindow.ui \
