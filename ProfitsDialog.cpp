@@ -21,8 +21,8 @@ ProfitsDialog::ProfitsDialog(const DataList<Service *> * services, QWidget *pare
         ui->unitLabel->setText(currentService->getUnit());
         ui->costLineEdit->setText(QString::number(currentService->getPrice()));
     });
-
-    connect(ui->cancelButton, &QPushButton::clicked, this, &QDialog::close);
+    connect(ui->addButton, &QPushButton::clicked, this, &QDialog::accept);
+    connect(ui->cancelButton, &QPushButton::clicked, this, &QDialog::reject);
 }
 
 ProfitsDialog::~ProfitsDialog()

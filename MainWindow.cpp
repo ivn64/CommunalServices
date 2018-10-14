@@ -53,6 +53,9 @@ void MainWindow::housesDialogShow()
 
 void MainWindow::profitsDialogShow()
 {
-    ProfitsDialog profits(servicesList);
-    profits.exec();
+    ProfitsDialog profit(servicesList);
+    if (profit.exec() == QDialog::Accepted)
+    {
+
+    }
 }
