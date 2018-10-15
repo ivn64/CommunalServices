@@ -5,6 +5,7 @@
 
 #include "Service.h"
 #include "DataList.h"
+#include "Profit.h"
 
 namespace Ui {
 class ProfitsDialog;
@@ -21,6 +22,7 @@ public:
 private:
     Ui::ProfitsDialog *ui;
     const DataList<Service *> * m_services;
+    Profit m_profit;
 };
 
 #endif // PROFITSDIALOG_H

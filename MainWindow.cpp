@@ -56,6 +56,6 @@ void MainWindow::profitsDialogShow()
     ProfitsDialog profit(servicesList);
     if (profit.exec() == QDialog::Accepted)
     {
-
+    int rr = 0;
     }
 }
