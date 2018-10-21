@@ -27,6 +27,7 @@ ProfitsDialog::ProfitsDialog(const DataList<Service *> * services, QWidget *pare
     });
     connect(ui->addButton, &QPushButton::clicked, [this]()
     {
+        fillProfitDate();
         this->accept();
     });
     connect(ui->cancelButton, &QPushButton::clicked, this, &QDialog::reject);
@@ -35,4 +36,18 @@ ProfitsDialog::ProfitsDialog(const DataList<Service *> * services, QWidget *pare
 ProfitsDialog::~ProfitsDialog()
 {
     delete ui;
+}
+
+void ProfitsDialog::fillProfitDate()
+{
+    Profit profit;
+    profit.setService(ui->serviceComboBox->currentText());
+    profit.setIndications(ui->indicationsLineEdit->text().toFloat());
+    profit.setUnit(ui->unitLabel->text());
+    profit.setCost(ui->costLineEdit->text().toFloat());
+    profit.setAccruals(ui->accuralsLineEdit->text().toFloat());
+
+    m_profitDate.setMonth(ui->monthComboBox->currentIndex());
+    m_profitDate.setYear(ui->yearComboBox->currentText().toInt());
+    m_profitDate.addProfit(profit);
 }

@@ -24,3 +24,8 @@ void ProfitsDate::setMonth(int value)
 {
     month = value;
 }
+
+void ProfitsDate::addProfit(const Profit &profit)
+{
+    profits.append(profit);
+}

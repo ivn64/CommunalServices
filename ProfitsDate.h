@@ -16,6 +16,8 @@ public:
     int getMonth() const;
     void setMonth(int value);
 
+    void addProfit(const Profit & profit);
+
     friend QDataStream &operator<<(QDataStream &d, ProfitsDate * u);
     friend QDataStream &operator>>(QDataStream &d, ProfitsDate * u);
 

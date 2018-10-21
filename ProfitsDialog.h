@@ -5,7 +5,7 @@
 
 #include "Service.h"
 #include "DataList.h"
-#include "Profit.h"
+#include "ProfitsDate.h"
 
 namespace Ui {
 class ProfitsDialog;
@@ -19,10 +19,12 @@ public:
     explicit ProfitsDialog(const DataList<Service *> * services, QWidget *parent = nullptr);
     ~ProfitsDialog();
 
+    void fillProfitDate();
+
 private:
     Ui::ProfitsDialog *ui;
     const DataList<Service *> * m_services;
-    Profit m_profit;
+    ProfitsDate m_profitDate;
 };
 
 #endif // PROFITSDIALOG_H

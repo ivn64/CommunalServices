@@ -67,3 +67,8 @@ void House::setIsPrivate(bool value)
 {
     isPrivate = value;
 }
+
+void House::addProfitDate(const ProfitsDate & profitDate)
+{
+    profits.append(profitDate);
+}

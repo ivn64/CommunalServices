@@ -1,6 +1,8 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
 
+#include <QMessageBox>
+
 #include "ServicesDialog.h"
 #include "HousesDialog.h"
 #include "ProfitsDialog.h"
@@ -16,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     housesList = new DataList<House *>();
     housesList->load("houses.dat");
+    fillHouses();
 
     connect(ui->servicesButton, &QPushButton::clicked, this, &MainWindow::servicesDialogShow);
     connect(ui->housesButton,   &QPushButton::clicked, this, &MainWindow::housesDialogShow  );
@@ -27,6 +30,15 @@ MainWindow::~MainWindow()
     delete servicesList;
     delete housesList;
     delete ui;
+}
+
+void MainWindow::fillHouses()
+{
+    ui->housesComboBox->clear();
+    for(int i = 0; i < housesList->size(); ++i)
+    {
+        ui->housesComboBox->addItem(housesList->at(i)->getName());
+    }
 }
 
 void MainWindow::servicesDialogShow()
@@ -48,14 +60,18 @@ void MainWindow::housesDialogShow()
         housesList->removeAllItems();
         housesList = houses.getHousesList();
         housesList->save("houses.dat");
+        fillHouses();
     }
 }
 
 void MainWindow::profitsDialogShow()
 {
-    ProfitsDialog profit(servicesList);
-    if (profit.exec() == QDialog::Accepted)
+    if (ui->housesComboBox->currentIndex() >= 0)
     {
-    int rr = 0;
+        ProfitsDialog profit(servicesList);
+        if (profit.exec() == QDialog::Accepted)
+        {
+            int rr = 0;
+        }
     }
 }

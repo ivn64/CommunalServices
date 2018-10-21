@@ -25,6 +25,8 @@ public:
     bool getIsPrivate();
     void setIsPrivate(bool value);
 
+    void addProfitDate(const ProfitsDate & profitDate);
+
     friend QDataStream &operator<<(QDataStream &d, House * u);
     friend QDataStream &operator>>(QDataStream &d, House * u);
 

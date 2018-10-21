@@ -19,6 +19,8 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void fillHouses();
+
 private:
     void servicesDialogShow();
     void housesDialogShow();
