@@ -36,14 +36,14 @@ private:
     float area;
     int numberOfPeoples;
     bool isPrivate;
-    QList<ProfitsDate> profits;
+    QList<ProfitsDate> m_profitsDate;
 
 };
 
 inline QDataStream& operator<<( QDataStream& d, House * u )
 {
     d << u->name << u->adress << u->area << u->numberOfPeoples << u->isPrivate;
-    for (auto item : u->profits)
+    for (auto item : u->m_profitsDate)
         d << &item;
     return d;
 }
@@ -51,7 +51,7 @@ inline QDataStream& operator<<( QDataStream& d, House * u )
 inline QDataStream& operator>>( QDataStream& d, House * u )
 {
     d >> u->name >> u->adress >> u->area >> u->numberOfPeoples >> u->isPrivate;
-    for (auto item : u->profits)
+    for (auto item : u->m_profitsDate)
         d >> &item;
     return d;
 }

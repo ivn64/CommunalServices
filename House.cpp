@@ -70,5 +70,15 @@ void House::setIsPrivate(bool value)
 
 void House::addProfitDate(const ProfitsDate & profitDate)
 {
-    profits.append(profitDate);
+    for(auto it = m_profitsDate.begin(); it <= m_profitsDate.end(); it++)
+    {
+        if (it != m_profitsDate.end() && it->getYear() == profitDate.getYear() && it->getMonth() == profitDate.getMonth())
+        {
+            it->addProfits(profitDate.getProfits());
+        }
+        else
+        {
+            m_profitsDate.append(profitDate);
+        }
+    }
 }

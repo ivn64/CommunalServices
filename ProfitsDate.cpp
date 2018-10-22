@@ -25,7 +25,17 @@ void ProfitsDate::setMonth(int value)
     month = value;
 }
 
-void ProfitsDate::addProfit(const Profit &profit)
+QList<Profit> ProfitsDate::getProfits() const
 {
-    profits.append(profit);
+    return m_profits;
+}
+
+void ProfitsDate::addProfit(const Profit & profit)
+{
+    m_profits.append(profit);
+}
+
+void ProfitsDate::addProfits(QList<Profit> profits)
+{
+    m_profits.append(profits);
 }

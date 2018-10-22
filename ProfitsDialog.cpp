@@ -51,3 +51,8 @@ void ProfitsDialog::fillProfitDate()
     m_profitDate.setYear(ui->yearComboBox->currentText().toInt());
     m_profitDate.addProfit(profit);
 }
+
+ProfitsDate ProfitsDialog::profitDate() const
+{
+    return m_profitDate;
+}

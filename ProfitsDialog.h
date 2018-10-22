@@ -21,6 +21,8 @@ public:
 
     void fillProfitDate();
 
+    ProfitsDate profitDate() const;
+
 private:
     Ui::ProfitsDialog *ui;
     const DataList<Service *> * m_services;

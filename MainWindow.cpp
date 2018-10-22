@@ -71,7 +71,9 @@ void MainWindow::profitsDialogShow()
         ProfitsDialog profit(servicesList);
         if (profit.exec() == QDialog::Accepted)
         {
-            int rr = 0;
+            housesList->at(ui->housesComboBox->currentIndex())->addProfitDate(profit.profitDate());
+            housesList->save("houses.dat");
+            fillHouses();
         }
     }
 }
