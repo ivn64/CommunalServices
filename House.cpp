@@ -16,6 +16,7 @@ House::House(const House * obj)
     area = obj->area;
     numberOfPeoples = obj->numberOfPeoples;
     isPrivate = obj->isPrivate;
+    m_profitsDate = obj->m_profitsDate;
 }
 
 QString House::getName()
@@ -70,15 +71,12 @@ void House::setIsPrivate(bool value)
 
 void House::addProfitDate(const ProfitsDate & profitDate)
 {
-    for(auto it = m_profitsDate.begin(); it <= m_profitsDate.end(); it++)
+    auto test = std::find_if(m_profitsDate.begin(), m_profitsDate.end(), [profitDate](const auto &item)
     {
-        if (it != m_profitsDate.end() && it->getYear() == profitDate.getYear() && it->getMonth() == profitDate.getMonth())
-        {
-            it->addProfits(profitDate.getProfits());
-        }
-        else
-        {
-            m_profitsDate.append(profitDate);
-        }
-    }
+        return item.getYear() == profitDate.getYear() && item.getMonth() == profitDate.getMonth();
+    });
+    if (test != m_profitsDate.end())
+        test->addProfits(profitDate.getProfits());
+    else
+        m_profitsDate.append(profitDate);
 }
