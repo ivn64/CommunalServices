@@ -13,8 +13,6 @@ QRadioButton        { color: #a1c5e8 }
 
 QPushButton#housesButton     { max-height: 20px; min-height: 20px; }
 QPushButton#addButton        { max-height: 20px; min-height: 20px; }
-QPushButton#addYearButton,
-QPushButton#removeYearButton { max-height: 20px; min-height: 20px; max-width: 20px; min-width: 20px; }
 
 /* ServicesDialog */
 
