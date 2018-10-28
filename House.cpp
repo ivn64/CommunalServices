@@ -71,12 +71,15 @@ void House::setIsPrivate(bool value)
 
 void House::addProfitDate(const ProfitsDate & profitDate)
 {
-    auto test = std::find_if(m_profitsDate.begin(), m_profitsDate.end(), [profitDate](const auto &item)
-    {
-        return item.getYear() == profitDate.getYear() && item.getMonth() == profitDate.getMonth();
-    });
-    if (test != m_profitsDate.end())
-        test->addProfits(profitDate.getProfits());
+    auto it = std::find_if(m_profitsDate.begin(), m_profitsDate.end(), [profitDate](const auto &item)
+    { return item.getYear() == profitDate.getYear() && item.getMonth() == profitDate.getMonth(); });
+    if (it != m_profitsDate.end())
+        it->addProfits(profitDate.getProfits());
     else
         m_profitsDate.append(profitDate);
+}
+
+QList<ProfitsDate> House::getProfitsDate() const
+{
+    return m_profitsDate;
 }

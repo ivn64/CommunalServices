@@ -19,12 +19,15 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void fillHouses();
-
 private:
     void servicesDialogShow();
     void housesDialogShow();
     void profitsDialogShow();
+    void fillHouses();
+//    void fillDates();
+    void fillYears();
+    void fillMonthes();
+    House * currentHouse();
 
 private:
     Ui::MainWindow *ui;

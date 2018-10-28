@@ -30,6 +30,8 @@ public:
     friend QDataStream &operator<<(QDataStream &d, House * u);
     friend QDataStream &operator>>(QDataStream &d, House * u);
 
+    QList<ProfitsDate> getProfitsDate() const;
+
 private:
     QString name;
     QString adress;
