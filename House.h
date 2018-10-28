@@ -42,7 +42,7 @@ private:
 
 inline QDataStream& operator<<( QDataStream& d, House * u )
 {
-    d << u->name << u->adress << u->area << u->numberOfPeoples << u->isPrivate;
+    d << u->name << u->adress << u->area << u->numberOfPeoples << u->isPrivate << u->m_profitsDate.size();
     for (auto item : u->m_profitsDate)
         d << &item;
     return d;
@@ -51,8 +51,14 @@ inline QDataStream& operator<<( QDataStream& d, House * u )
 inline QDataStream& operator>>( QDataStream& d, House * u )
 {
     d >> u->name >> u->adress >> u->area >> u->numberOfPeoples >> u->isPrivate;
-    for (auto item : u->m_profitsDate)
-        d >> &item;
+    int size;
+    d >> size;
+    for (int i = 0; i < size; ++i)
+    {
+        ProfitsDate profitDate;
+        u->m_profitsDate.append(profitDate);
+        d >> &u->m_profitsDate.last();
+    }
     return d;
 }
 

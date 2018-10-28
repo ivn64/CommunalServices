@@ -32,7 +32,7 @@ private:
 
 inline QDataStream& operator<<( QDataStream& d, ProfitsDate * u )
 {
-    d << u->year << u->month;
+    d << u->year << u->month << u->m_profits.size();
     for (auto item : u->m_profits)
         d << &item;
     return d;
@@ -41,8 +41,14 @@ inline QDataStream& operator<<( QDataStream& d, ProfitsDate * u )
 inline QDataStream& operator>>( QDataStream& d, ProfitsDate * u )
 {
     d >> u->year >> u->month;
-    for (auto item : u->m_profits)
-        d >> &item;
+    int size;
+    d >> size;
+    for (int i = 0; i < size; ++i)
+    {
+        Profit profit;
+        u->m_profits.append(profit);
+        d >> &u->m_profits.last();
+    }
     return d;
 }
 
