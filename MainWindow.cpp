@@ -68,6 +68,7 @@ void MainWindow::fillHouses()
 
 void MainWindow::fillYears()
 {
+    ui->yearComboBox->clear();
     auto house = currentHouse();
     if (!house)
         return;
@@ -81,6 +82,7 @@ void MainWindow::fillYears()
 
 void MainWindow::fillMonthes()
 {
+    ui->monthComboBox->clear();
     auto house = currentHouse();
     if (!house)
         return;
